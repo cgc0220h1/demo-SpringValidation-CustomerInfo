@@ -10,23 +10,23 @@ import java.util.Objects;
 
 @Component
 public class Customer {
-    @NotEmpty(message = "First Name cannot empty")
-    @Size(min = 5, max = 45, message = "First name must be within {min} and {max} characters")
+    @NotEmpty(message = "{firstName.empty}")
+    @Size(min = 5, max = 45, message = "{firstName.size}")
     private String firstName;
 
-    @NotEmpty(message = "Last Name cannot empty")
-    @Size(min = 5, max = 45, message = "Last name must be within {min} and {max} characters")
+    @NotEmpty(message = "{lastName.empty}")
+    @Size(min = 5, max = 45, message = "{lastName.size}")
     private String lastName;
 
-    @Size(min = 10, max = 11, message = "Phone must be within {min} and {max} numbers")
-    @Pattern(regexp = "^0\\d*", message = "Phone must start with 0")
-    @Pattern(regexp = "\\d{10,11}", message = "Phone must include only number")
+    @Size(min = 10, max = 11, message = "{phone.size}")
+    @Pattern(regexp = "^0\\d*", message = "{phone.startWith}")
+    @Pattern(regexp = "\\d{10,11}", message = "{phone.numberOnly}")
     private String phone;
 
-    @Min(value = 18, message = "Age must be higher than {value}")
+    @Min(value = 18, message = "{age.outBound}")
     private int age;
 
-    @Pattern(regexp = "^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$", message = "Email is not valid")
+    @Pattern(regexp = "^[a-z][a-z0-9_.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$", message = "{email.invalid}")
     private String email;
 
     public String getFirstName() {
