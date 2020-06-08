@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Check</title>
+</head>
+<body>
+<form method="POST" th:object="${customer}">
+    <h2>Customer Form</h2>
+    <table>
+        <tr>
+            <td>
+                <label for="customer-first-name">First Name</label>
+            </td>
+            <td>
+                <input type="text" id="customer-first-name" th:field="*{firstName}">
+            </td>
+        </tr>
+        <tr>
+            <th:block th:if="${#fields.hasErrors('firstName')}">
+                <p th:errors="*{firstName}"></p>
+            </th:block>
+        </tr>
+        <tr>
+            <td>
+                <label for="customer-last-name">Last Name</label>
+            </td>
+            <td>
+                <input type="text" id="customer-last-name" th:field="*{lastName}">
+            </td>
+        </tr>
+        <tr>
+            <th:block th:if="${#fields.hasErrors('lastName')}">
+                <p th:errors="*{lastName}"></p>
+            </th:block>
+        </tr>
+        <tr>
+            <td>
+                <label for="customer-age">Customer Age</label>
+            </td>
+            <td>
+                <input type="text" id="customer-age" th:field="*{age}">
+            </td>
+        </tr>
+        <tr>
+            <th:block th:if="${#fields.hasErrors('age')}">
+                <p th:errors="*{age}"></p>
+            </th:block>
+        </tr>
+        <tr>
+            <td>
+                <label for="customer-email">Customer Age</label>
+            </td>
+            <td>
+                <input type="text" id="customer-email" th:field="*{email}">
+            </td>
+        </tr>
+        <tr>
+            <th:block th:if="${#fields.hasErrors('email')}">
+                <p th:errors="*{email}"></p>
+            </th:block>
+        </tr>
+        <tr>
+            <td>
+                <label for="customer-phone">Customer Phone</label>
+            </td>
+            <td>
+                <input type="text" id="customer-phone" th:field="*{phone}">
+            </td>
+        </tr>
+        <tr>
+            <th:block th:if="${#fields.hasErrors('phone')}">
+                <p th:errors="*{phone}"></p>
+            </th:block>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
